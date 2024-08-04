@@ -1,20 +1,18 @@
-import test, { PlaywrightTestConfig, chromium } from "@playwright/test";
+import test, { PlaywrightTestConfig, chromium, expect } from "@playwright/test";
 
+function sleep(ms: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
-test("Login to K12",async() =>{
+test("Login to K12",async({page}) =>{
 
-    //Initizlize browser
-    const browser = await chromium.launch({
-        headless:false
-    });
-    const context  = await browser.newContext();
-    const context1  = await browser.newContext();
-    const page = await context.newPage();
-    const page1 = await context1.newPage();
-
-    await page.goto("https://www.k12insight.com/Lets-talk.aspx")
-    await page.fill("input[placeholder='Username']","nsawant1+indialive@zarca.com")
-    await page.fill("input[placeholder='Password']","Welcome@123")
-    await page.click("input[id='submit']")
-    await page.getByAltText('logo')    
+    await page.goto('https://k12qauc.k12insight.com/static/k12insight_login.html');
+    await page.getByPlaceholder('Username').fill('nsawant1+profile@zarca.com');
+    await page.getByPlaceholder('Password').fill('Ninad@123');
+    await page.getByRole('button', { name: 'LOG IN' }).click();
+    await expect(page.getByRole('cell', { name: 'Customer', exact: true })).toBeVisible({timeout:30000});
+    const loadingElement = page.locator('img[role="img"][alt="loading"]');
+    //await loadingElement.waitFor({ state: 'visible' });
+    await loadingElement.waitFor({ state: 'hidden' });
+    await expect(page.getByText('Show All')).toBeVisible();
 })

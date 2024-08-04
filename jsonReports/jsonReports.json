@@ -1,7 +1,7 @@
 {
   "config": {
     "configFile": "c:\\Users\\Ninad\\Documents\\K12Playwright\\playwright.config.ts",
-    "rootDir": "c:/Users/Ninad/Documents/K12Playwright",
+    "rootDir": "c:/Users/Ninad/Documents/K12Playwright/tests",
     "forbidOnly": false,
     "fullyParallel": false,
     "globalSetup": null,
@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 1
+      "actualWorkers": 2
     },
     "preserveOutput": "always",
     "reporter": [
@@ -45,10 +45,10 @@
         "metadata": {},
         "id": "",
         "name": "",
-        "testDir": "c:/Users/Ninad/Documents/K12Playwright",
+        "testDir": "c:/Users/Ninad/Documents/K12Playwright/tests",
         "testIgnore": [],
         "testMatch": [
-          "tests/recorded.test.ts"
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
         "timeout": 30000
       }
@@ -61,13 +61,13 @@
   },
   "suites": [
     {
-      "title": "tests\\recorded.test.ts",
-      "file": "tests/recorded.test.ts",
+      "title": "login.test.ts",
+      "file": "login.test.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "Word cloud",
+          "title": "Login to K12",
           "ok": true,
           "tags": [],
           "tests": [
@@ -79,19 +79,19 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
+                  "workerIndex": 10,
                   "status": "passed",
-                  "duration": 13009,
+                  "duration": 23915,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2024-07-30T19:42:09.607Z",
+                  "startTime": "2024-08-04T20:19:03.943Z",
                   "attachments": [
                     {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "c:\\Users\\Ninad\\Documents\\K12Playwright\\test-results\\tests-recorded-Word-cloud\\test-finished-1.png"
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "c:\\Users\\Ninad\\Documents\\K12Playwright\\test-results\\login-Login-to-K12\\trace.zip"
                     }
                   ]
                 }
@@ -99,9 +99,161 @@
               "status": "expected"
             }
           ],
-          "id": "aeb89487b60598200775-6f89732178d57a7c7097",
-          "file": "tests/recorded.test.ts",
-          "line": 3,
+          "id": "12975f3ff1f884ffbbdd-7d9a3ea0552fa6be0515",
+          "file": "login.test.ts",
+          "line": 7,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "PerfK12.test.ts",
+      "file": "PerfK12.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Ask a question to Chatsy",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "status": "passed",
+                  "duration": 29350,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "Timer started\n"
+                    },
+                    {
+                      "text": "Timer ended\n"
+                    },
+                    {
+                      "text": "Elapsed time: 7114 milliseconds\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-08-04T20:19:03.950Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "c:\\Users\\Ninad\\Documents\\K12Playwright\\test-results\\PerfK12-Ask-a-question-to-Chatsy\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "61ccc47a3c1bd226f6f0-cb5111c8247d9d98ed72",
+          "file": "PerfK12.test.ts",
+          "line": 7,
+          "column": 5
+        },
+        {
+          "title": "Submit internal form",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "status": "passed",
+                  "duration": 27267,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "Timer started\n"
+                    },
+                    {
+                      "text": "Timer ended\n"
+                    },
+                    {
+                      "text": "Elapsed time: 10766 milliseconds\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-08-04T20:19:34.034Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "c:\\Users\\Ninad\\Documents\\K12Playwright\\test-results\\PerfK12-Submit-internal-form\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "61ccc47a3c1bd226f6f0-28eb146f0bc480bb2580",
+          "file": "PerfK12.test.ts",
+          "line": 62,
+          "column": 5
+        },
+        {
+          "title": "Chat in Fab",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "status": "passed",
+                  "duration": 15274,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "Timer started\n"
+                    },
+                    {
+                      "text": "Timer ended\n"
+                    },
+                    {
+                      "text": "Elapsed time: 5021 milliseconds\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2024-08-04T20:20:01.829Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "c:\\Users\\Ninad\\Documents\\K12Playwright\\test-results\\PerfK12-Chat-in-Fab\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "61ccc47a3c1bd226f6f0-650607154900454974d1",
+          "file": "PerfK12.test.ts",
+          "line": 147,
           "column": 5
         }
       ]
@@ -109,9 +261,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-07-30T19:42:08.493Z",
-    "duration": 14506.853999999992,
-    "expected": 1,
+    "startTime": "2024-08-04T20:19:02.846Z",
+    "duration": 74678.66200000001,
+    "expected": 4,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
