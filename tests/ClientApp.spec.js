@@ -1,8 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 
-test('Get all products', async ({ page }) => {
-
+test('Proint all products', async ({ page }) => {
     await page.goto('https://rahulshettyacademy.com/client');
     await page.locator("//input[@id='userEmail']").fill('anshika@gmail.com')
     await page.locator("//input[@id='userPassword']").fill('Iamking@000')
