@@ -55,7 +55,7 @@ test('RB and Dropdowns with validations', async ({ page }) => {
   await page.locator("//input[@type='submit']").click()
 })
 
-test.only('Handling child windows', async ({ browser }) => {
+test('Handling child windows', async ({ browser }) => {
   const context = await browser.newContext()
   const page = await context.newPage()
   await page.goto('https://rahulshettyacademy.com/loginpagePractise/')
@@ -72,3 +72,17 @@ test.only('Handling child windows', async ({ browser }) => {
   await page.locator("#username").type(domain)
   console.log(await page.locator("#username").textContent())
 })
+
+test('Codegen test', async ({ page }) => {
+  await page.goto('https://www.k12insight.com/');
+  await page.getByRole('button', { name: 'Close' }).click();
+  const page1Promise = page.waitForEvent('popup');
+  await page.getByRole('link', { name: 'Login' }).click();
+  const page1 = await page1Promise;
+  await page1.getByRole('textbox', { name: 'Username' }).click();
+  await page1.getByRole('textbox', { name: 'Username' }).fill('nsawant1@zarca.com');
+  await page1.getByRole('textbox', { name: 'Username' }).press('Tab');
+  await page1.getByRole('textbox', { name: 'Password' }).fill('Welcome@123');
+  await page1.getByRole('button', { name: 'LOG IN' }).click();
+  await page1.getByText('Invalid User Name or Password').click();
+});
