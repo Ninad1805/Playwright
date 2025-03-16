@@ -1,5 +1,7 @@
 import { test, expect, request } from '@playwright/test';
 const loginPayload = { userEmail: "sedene9987@doishy.com", userPassword: "Welcome@123" };
+const orderIdPayload = { orders: [{ country: "India", productOrderedId: "67a8dde5c0d3e6622a297cc8" }] };
+let orderId;
 let token;
 
 test.beforeAll(async ({ }) => {
@@ -79,4 +81,22 @@ test('Order without login', async ({ page }) => {
     }
     expect(orderId.includes(await page.locator("div.col-text").textContent())).toBeTruthy();
 
+});
+
+
+test('Get order id using API', async ({ page }) => {
+    const apiContext = await request.newContext();
+    const createOrderResponse = await apiContext.post("https://rahulshettyacademy.com/api/ecom/order/create-order",
+        {
+            data: orderIdPayload,
+            headers: {
+                'Authorization': token,
+                'Content-Type': 'application/json'
+            },
+        })
+
+    const orderResponseJson = await createOrderResponse.json()
+    orderId = orderResponseJson.orders[0];
+    console.log(orderResponseJson)
+    console.log('Order id is: ' + orderId)
 });
