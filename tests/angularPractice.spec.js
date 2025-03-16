@@ -47,3 +47,11 @@ test('Handle Calenders', async ({ page }) => {
         expect(value).toBe(expectedList[index])
     }
 });
+
+test('Handle Iframes', async ({ page }) => {
+
+    await page.goto("https://rahulshettyacademy.com/AutomationPractice/")
+    const framesPage = page.frameLocator("#course-iframe")
+    await framesPage.locator("//a[@class='new-navbar-highlighter' and text()='All Access plan']").click()
+    await framesPage.locator("//h1[text()='All Access Subscription']").isVisible()
+});
