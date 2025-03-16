@@ -80,7 +80,6 @@ test('Order without login', async ({ page }) => {
         }
     }
     expect(orderId.includes(await page.locator("div.col-text").textContent())).toBeTruthy();
-
 });
 
 
@@ -99,4 +98,21 @@ test('Get order id using API', async ({ page }) => {
     orderId = orderResponseJson.orders[0];
     console.log(orderResponseJson)
     console.log('Order id is: ' + orderId)
+
+    page.addInitScript(value => {
+        window.localStorage.setItem('token', value);
+    }, token);
+    
+    await page.goto('https://rahulshettyacademy.com/client');
+    const rows = await page.locator("tbody tr");
+    await page.locator("//button[@routerlink='/dashboard/myorders']").click()
+    await page.locator("//tbody").waitFor();
+    for (let i = 0; i < await rows.count(); ++i) {
+        const rowOrderId = await rows.nth(i).locator("th").textContent();
+        if (orderId.includes(rowOrderId)) {
+            await rows.nth(i).locator("button").first().click();
+            break;
+        }
+    }
+    expect(orderId.includes(await page.locator("div.col-text").textContent())).toBeTruthy();
 });
