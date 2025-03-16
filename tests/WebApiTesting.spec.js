@@ -15,7 +15,7 @@ test.beforeAll(async ({ }) => {
 });
 
 
-test('Web API Testing', async ({ page }) => {
+test('Order without login', async ({ page }) => {
 
     page.addInitScript(value => {
         window.localStorage.setItem('token', value);
